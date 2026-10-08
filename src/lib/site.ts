@@ -17,7 +17,7 @@ export type Dish = { name: string; note?: string; price: number };
 export type DailyMenu = { date: string; dishes: Dish[] };
 
 // Meniuri zilnice — cel mai nou primul. Se actualizează din pagina de Facebook.
-export const DAILY_MENUS: DailyMenu[] = [
+export const DAILY_MENUS: [DailyMenu, ...DailyMenu[]] = [
   {
     date: "2026-10-08",
     dishes: [
