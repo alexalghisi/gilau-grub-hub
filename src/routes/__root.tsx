@@ -56,6 +56,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "geo.region", content: "RO-CJ" },
       { name: "geo.placename", content: "Gilău" },
+      { name: "google-adsense-account", content: "ca-pub-4079300108937036" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -64,7 +65,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" },
     ],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessLd) }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(localBusinessLd) },
+      { async: true, src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4079300108937036", crossOrigin: "anonymous" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
