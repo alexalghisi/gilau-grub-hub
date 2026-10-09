@@ -66,7 +66,7 @@ function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 md:grid-cols-2">
           <img src={daily} alt="Meniul zilei: ciorbă, pui la cuptor cu piure și salată" width={1024} height={1024} loading="lazy" className="aspect-square w-full rounded-none object-cover" />
           <div>
-            <p className="eyebrow !text-ember-soft">Catering Cluj</p>
+            <p className="eyebrow">Catering Cluj</p>
             <h2 className="mt-3 text-3xl md:text-4xl">Livrăm în toată zona metropolitană Cluj</h2>
             <p className="mt-5 opacity-75">
               Din Gilău până în Florești și Cluj-Napoca, aducem mâncare caldă la birou, acasă sau la eveniment. Meniul se schimbă zilnic și îl publicăm aici și pe Facebook.
