@@ -1,15 +1,14 @@
-// Date de contact — DE CONFIRMAT cu clientul.
 export const SITE = {
   name: "Optim Catering",
-  phone: "07xx xxx xxx",
-  phoneHref: "tel:+4070000000",
+  phone: "0727 944 844",
+  phoneHref: "tel:+40727944844",
   email: "contact@optimcatering.ro",
-  street: "Gilău",
+  street: "Str. Republicii 191",
   locality: "Gilău",
   region: "Cluj",
   postal: "407310",
-  hours: "Luni – Vineri, 08:00 – 16:00",
-  facebook: "https://www.facebook.com/search/top?q=Optim%20Catering%20Gil%C4%83u",
+  hours: "Luni – Vineri, 09:00 – 15:00",
+  facebook: "https://www.facebook.com/p/Optim-Catering-100080055056942/",
   areas: ["Gilău", "Florești", "Cluj-Napoca", "Luna de Sus", "Săvădisla", "Căpușu Mare"],
 };
 
@@ -67,6 +66,7 @@ export const localBusinessLd = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
+    streetAddress: SITE.street,
     addressLocality: SITE.locality,
     addressRegion: SITE.region,
     postalCode: SITE.postal,
