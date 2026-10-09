@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -37,30 +37,31 @@
 }
 
 :root {
-  --radius: 0.875rem;
-  --background: oklch(0.955 0.015 85);
-  --foreground: oklch(0.2 0.012 50);
-  --card: oklch(0.975 0.01 85);
-  --card-foreground: oklch(0.2 0.012 50);
-  --popover: oklch(0.975 0.01 85);
-  --popover-foreground: oklch(0.2 0.012 50);
-  --primary: oklch(0.2 0.012 50);
-  --primary-foreground: oklch(0.955 0.015 85);
-  --secondary: oklch(0.915 0.025 82);
-  --secondary-foreground: oklch(0.2 0.012 50);
-  --muted: oklch(0.915 0.025 82);
-  --muted-foreground: oklch(0.45 0.02 55);
-  --accent: oklch(0.55 0.15 38);
-  --accent-foreground: oklch(0.975 0.01 85);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.85 0.03 80);
-  --input: oklch(0.85 0.03 80);
-  --ring: oklch(0.55 0.15 38);
-  --ink: oklch(0.2 0.012 50);
-  --ink-foreground: oklch(0.955 0.015 85);
-  --ember: oklch(0.55 0.15 38);
-  --ember-soft: oklch(0.7 0.11 42);
+  --radius: 1rem;
+  --background: oklch(0.14 0.02 260);
+  --foreground: oklch(0.95 0.01 250);
+  --card: oklch(0.19 0.025 260);
+  --card-foreground: oklch(0.95 0.01 250);
+  --popover: oklch(0.19 0.025 260);
+  --popover-foreground: oklch(0.95 0.01 250);
+  --primary: oklch(0.86 0.18 165);
+  --primary-foreground: oklch(0.14 0.02 260);
+  --secondary: oklch(0.23 0.03 260);
+  --secondary-foreground: oklch(0.95 0.01 250);
+  --muted: oklch(0.23 0.03 260);
+  --muted-foreground: oklch(0.7 0.02 250);
+  --accent: oklch(0.86 0.18 165);
+  --accent-foreground: oklch(0.14 0.02 260);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.03 260);
+  --input: oklch(0.3 0.03 260);
+  --ring: oklch(0.86 0.18 165);
+  --ink: oklch(0.1 0.02 260);
+  --ink-foreground: oklch(0.95 0.01 250);
+  --ember: oklch(0.86 0.18 165);
+  --ember-soft: oklch(0.72 0.17 300);
+  --glow: 0 0 30px -6px color-mix(in oklab, var(--ember) 70%, transparent);
 }
 
 @layer base {
@@ -68,11 +69,18 @@
   html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
+    background-image: radial-gradient(60rem 40rem at 85% -10%, color-mix(in oklab, var(--ember-soft) 18%, transparent), transparent 60%),
+      radial-gradient(50rem 35rem at -10% 20%, color-mix(in oklab, var(--ember) 12%, transparent), transparent 60%),
+      linear-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: auto, auto, 48px 48px, 48px 48px;
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.03em; font-weight: 600; }
+  img { border-radius: inherit; }
 }
 
 @utility eyebrow {
@@ -86,13 +94,13 @@
 @utility btn-ink {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
   border-radius: 9999px; padding: .85rem 1.6rem; font-weight: 600; font-size: .9rem;
-  background: var(--ink); color: var(--ink-foreground); transition: background .2s;
-  &:hover { background: var(--ember); }
+  background: var(--ember); color: var(--primary-foreground); box-shadow: var(--glow); transition: transform .2s, box-shadow .2s;
+  &:hover { transform: translateY(-1px); box-shadow: 0 0 45px -4px var(--ember); }
 }
 @utility btn-ember {
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
   border-radius: 9999px; padding: .85rem 1.6rem; font-weight: 600; font-size: .9rem;
-  background: var(--ember); color: var(--ink-foreground); transition: opacity .2s;
+  background: linear-gradient(120deg, var(--ember), var(--ember-soft)); color: var(--primary-foreground); box-shadow: var(--glow); transition: opacity .2s;
   &:hover { opacity: .88; }
 }
 @utility btn-outline {
@@ -105,4 +113,14 @@
   width: 100%; border-radius: .6rem; padding: .8rem 1rem; font-size: .95rem;
   background: var(--card); border: 1px solid var(--border);
   &:focus { outline: none; border-color: var(--ember); }
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+}
+@utility text-gradient {
+  background: linear-gradient(110deg, var(--ember), var(--ember-soft));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
