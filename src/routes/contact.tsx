@@ -22,10 +22,10 @@ function Page() {
         <address className="mt-8 space-y-2 not-italic text-lg">
           <p><a href={SITE.phoneHref} className="font-display text-3xl text-ember">{SITE.phone}</a></p>
           <p><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-          <p>{SITE.locality}, județul {SITE.region}</p>
+          <p>{SITE.street}, {SITE.locality}, județul {SITE.region}</p>
           <p className="text-muted-foreground">{SITE.hours}</p>
         </address>
-        <iframe title="Hartă Optim Catering Gilău" loading="lazy" className="mt-8 aspect-[4/3] w-full rounded-2xl border border-border" src="https://www.google.com/maps?q=Gil%C4%83u%2C%20Cluj&output=embed" />
+        <iframe title="Hartă Optim Catering Gilău" loading="lazy" className="mt-8 aspect-[4/3] w-full rounded-2xl border border-border" src="https://www.google.com/maps?q=Strada%20Republicii%20191%2C%20Gil%C4%83u%2C%20Cluj&output=embed" />
       </div>
       <form
         className="space-y-4 rounded-2xl border border-border bg-card p-7"

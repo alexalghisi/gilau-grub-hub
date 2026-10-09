@@ -66,6 +66,7 @@ export const localBusinessLd = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
+    streetAddress: SITE.street,
     addressLocality: SITE.locality,
     addressRegion: SITE.region,
     postalCode: SITE.postal,
