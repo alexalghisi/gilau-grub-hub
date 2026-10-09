@@ -10,9 +10,9 @@ export type Area = {
   intro: string;
   points: string[];
   distance: string;
-};
+} satisfies Record<string, Area>;
 
-export const AREAS: Record<string, Area> = {
+export const AREAS = {
   gilau: {
     slug: "catering-gilau",
     city: "Gilău",
@@ -40,7 +40,7 @@ export const AREAS: Record<string, Area> = {
     points: ["Livrare rapidă a meniului zilei", "Catering pentru petreceri și aniversări", "Nunți, botezuri și mese festive", "Abonamente de prânz pentru firme"],
     distance: "aprox. 8 km de bucătăria din Gilău",
   },
-};
+} satisfies Record<string, Area>;
 
 export function areaLd(a: Area) {
   const url = `https://optimcatering.ro/${a.slug}`;
@@ -77,7 +77,7 @@ export function areaLd(a: Area) {
 }
 
 export function AreaPage({ a }: { a: Area }) {
-  const others = Object.values(AREAS).filter((o) => o.slug !== a.slug);
+  const others = (Object.values(AREAS) as Area[]).filter((o) => o.slug !== a.slug);
   return (
     <>
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
