@@ -40,7 +40,7 @@ export function CookieConsent() {
     return (
       <button
         onClick={() => { setDetails(true); setOpen(true); }}
-        className="fixed bottom-16 left-3 z-40 rounded-none border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground shadow-sm hover:text-foreground md:bottom-4"
+        className="fixed bottom-16 left-3 z-40 rounded-2xl border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground shadow-sm hover:text-foreground md:bottom-4"
         aria-label="Setări cookie-uri"
       >
         Cookie-uri
@@ -65,7 +65,7 @@ export function CookieConsent() {
 
   return (
     <div role="dialog" aria-modal="false" aria-labelledby="cc-title"
-      className="fixed inset-x-3 bottom-16 z-50 mx-auto max-w-xl rounded-none border border-border bg-card p-5 text-card-foreground shadow-2xl md:bottom-6">
+      className="fixed inset-x-3 bottom-16 z-50 mx-auto max-w-xl rounded-2xl border border-border bg-card p-5 text-card-foreground shadow-2xl md:bottom-6">
       <h2 id="cc-title" className="text-lg">Respectăm confidențialitatea ta</h2>
       <p className="mt-2 text-sm text-muted-foreground">
         Folosim cookie-uri necesare pentru funcționarea site-ului și, cu acordul tău, cookie-uri pentru statistici și

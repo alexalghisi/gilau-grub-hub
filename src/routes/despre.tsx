@@ -36,7 +36,7 @@ function Page() {
       <h2 className="mt-16 text-3xl">Galerie</h2>
       <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
         {photos.map((p) => (
-          <img key={p.alt} src={p.src} alt={p.alt} loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-none object-cover" />
+          <img key={p.alt} src={p.src} alt={p.alt} loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-2xl object-cover" />
         ))}
       </div>
     </div>
