@@ -115,13 +115,13 @@ function AdminMenu() {
           <p className="text-sm font-semibold">2. Pozele (max. 6)</p>
           <div className="mt-2 grid grid-cols-3 gap-3 sm:grid-cols-6">
             {photos.map((p, i) => (
-              <button key={i} type="button" onClick={() => setPhotos((a) => a.filter((_, j) => j !== i))} className="group relative aspect-square overflow-hidden border-2 border-foreground" aria-label="Șterge poza">
+              <button key={i} type="button" onClick={() => setPhotos((a) => a.filter((_, j) => j !== i))} className="group relative aspect-square overflow-hidden border border-border" aria-label="Șterge poza">
                 <img src={p} alt="" className="h-full w-full object-cover" />
                 <span className="absolute inset-0 hidden items-center justify-center bg-foreground/70 text-xs font-bold text-background group-hover:flex">Șterge</span>
               </button>
             ))}
             {photos.length < 6 && (
-              <label className="flex aspect-square cursor-pointer items-center justify-center border-2 border-dashed border-foreground text-2xl">
+              <label className="flex aspect-square cursor-pointer items-center justify-center border border-dashed border-border text-2xl">
                 +<input type="file" accept="image/*" multiple className="sr-only" onChange={(e) => addFiles(e.target.files)} />
               </label>
             )}
@@ -132,7 +132,7 @@ function AdminMenu() {
         </button>
       </section>
 
-      {msg && <p className={`mt-6 border-2 p-4 text-sm ${msg.ok ? "border-foreground" : "border-destructive text-destructive"}`}>{msg.t}</p>}
+      {msg && <p className={`mt-6 border-2 p-4 text-sm ${msg.ok ? "border-border" : "border-destructive text-destructive"}`}>{msg.t}</p>}
 
       {items && (
         <section className="panel mt-8 p-6">
@@ -142,7 +142,7 @@ function AdminMenu() {
           </div>
           <div className="mt-6 space-y-5">
             {items.map((it, i) => (
-              <div key={i} className="border-t-2 border-foreground pt-4">
+              <div key={i} className="border-t border-border pt-4">
                 <div className="grid gap-3 md:grid-cols-[1fr_1fr_110px_auto]">
                   <input className="field" placeholder="Denumire" value={it.name} onChange={(e) => upd(i, { name: e.target.value })} />
                   <input className="field" placeholder="Descriere / garnitură" value={it.description ?? ""} onChange={(e) => upd(i, { description: e.target.value || null })} />
@@ -154,7 +154,7 @@ function AdminMenu() {
                     const on = it.allergens.includes(a);
                     return (
                       <button key={a} type="button" onClick={() => upd(i, { allergens: on ? it.allergens.filter((x) => x !== a) : [...it.allergens, a] })}
-                        className={`border-2 border-foreground px-2 py-0.5 text-xs font-semibold ${on ? "bg-foreground text-background" : ""}`}>
+                        className={`border border-border px-2 py-0.5 text-xs font-semibold ${on ? "bg-ember text-background" : ""}`}>
                         {a}
                       </button>
                     );
@@ -164,7 +164,7 @@ function AdminMenu() {
             ))}
           </div>
           <button className="btn-outline mt-5" onClick={() => setItems((a) => [...a!, { name: "", description: null, category: null, price: null, allergens: [] }])}>+ Adaugă fel</button>
-          <div className="mt-8 flex flex-wrap gap-3 border-t-2 border-foreground pt-6">
+          <div className="mt-8 flex flex-wrap gap-3 border-t border-border pt-6">
             <button className="btn-ink" disabled={busy !== ""} onClick={() => publish(true)}>{busy === "save" ? "Se salvează…" : "Publică pe site"}</button>
             <button className="btn-outline" disabled={busy !== ""} onClick={() => publish(false)}>Salvează ciornă</button>
           </div>
