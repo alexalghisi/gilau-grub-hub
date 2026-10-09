@@ -6,7 +6,7 @@ import { getFbStatus } from "@/lib/posts.functions";
 const statusQ = queryOptions({ queryKey: ["fb-status"], queryFn: () => getFbStatus() });
 
 export const Route = createFileRoute("/admin/facebook")({
-  validateSearch: (s: Record<string, unknown>) => ({ status: typeof s.status === "string" ? s.status : undefined }),
+  validateSearch: (s: Record<string, unknown>) => ({ status: typeof s["status"] === "string" ? s["status"] : undefined }),
   loader: ({ context }) => context.queryClient.ensureQueryData(statusQ),
   head: () => ({
     meta: [
