@@ -73,8 +73,8 @@ function Gallery({ images, date, big }: { images: string[]; date: string; big?: 
 function AiMenu({ m, big }: { m: PublicMenu; big?: boolean }) {
   return (
     <article className={`panel ${big ? "grid gap-0 md:grid-cols-[1.1fr_1fr]" : ""}`}>
-      {big && <div className="border-b-2 border-foreground p-3 md:border-b-0 md:border-r-2"><Gallery images={m.images} date={m.menu_date} big /></div>}
-      {!big && m.images.length > 0 && <div className="border-b-2 border-foreground p-2"><Gallery images={m.images} date={m.menu_date} /></div>}
+      {big && <div className="border-b border-border p-3 md:border-b-0 md:border-r"><Gallery images={m.images} date={m.menu_date} big /></div>}
+      {!big && m.images.length > 0 && <div className="border-b border-border p-2"><Gallery images={m.images} date={m.menu_date} /></div>}
       <div className="p-6 md:p-8">
         <p className="eyebrow capitalize">{longDate(m.menu_date)}</p>
         <ul className="mt-5 divide-y divide-border">
@@ -82,8 +82,8 @@ function AiMenu({ m, big }: { m: PublicMenu; big?: boolean }) {
             <li key={d.name} className="py-3">
               <div className="flex items-baseline gap-3">
                 <p className={`font-display font-bold ${big ? "text-2xl" : "text-lg"}`}>{d.name}</p>
-                <span className="flex-1 border-b-2 border-dotted border-foreground/20" />
-                {d.price != null && <span className="bg-ember-soft px-2 font-bold">{d.price} lei</span>}
+                <span className="flex-1 border-b border-dotted border-foreground/20" />
+                {d.price != null && <span className="rounded-full bg-ember px-2.5 text-sm font-bold text-background">{d.price} lei</span>}
               </div>
               {d.description && <p className="mt-1 text-sm text-muted-foreground">{d.description}</p>}
               {d.allergens.length > 0 && <p className="mt-1 text-xs"><span className="font-semibold">Alergeni:</span> {d.allergens.join(", ")}</p>}

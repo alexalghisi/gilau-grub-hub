@@ -69,7 +69,7 @@ export function Footer() {
 
 export function MobileCallBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-background md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-background/90 backdrop-blur-md md:hidden">
       <a href={SITE.phoneHref} className="py-4 text-center text-sm font-semibold">Sună</a>
       <Link to="/contact" className="bg-ember py-4 text-center text-sm font-semibold text-primary-foreground">Cere ofertă</Link>
     </div>

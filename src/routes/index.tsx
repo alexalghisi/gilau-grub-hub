@@ -46,7 +46,7 @@ function Home() {
         </div>
       </section>
 
-      <img src={hero} alt="Masă de catering cu sarmale, friptură și salate — Optim Catering Gilău" width={1600} height={1008} className="mx-auto aspect-[21/9] w-full max-w-6xl object-cover md:rounded-2xl" />
+      <img src={hero} alt="Masă de catering cu sarmale, friptură și salate — Optim Catering Gilău" width={1600} height={1008} className="mx-auto aspect-[21/9] w-full max-w-6xl rounded-2xl object-cover" />
 
       <section className="mx-auto max-w-6xl px-5 py-20">
         <p className="eyebrow">Servicii</p>
