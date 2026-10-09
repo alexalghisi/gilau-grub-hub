@@ -1,20 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { SITE } from "@/lib/site";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 const nav = [
-  { to: "/meniul-zilei", label: "Meniul zilei" },
-  { to: "/meniuri", label: "Servicii & meniuri" },
-  { to: "/despre", label: "Despre & galerie" },
-  { to: "/contact", label: "Contact" },
+  { to: "/meniul-zilei", label: "Meniul zilei", short: "Meniul zilei" },
+  { to: "/meniuri", label: "Servicii & meniuri", short: "Servicii" },
+  { to: "/despre", label: "Despre & galerie", short: "Galerie" },
+  { to: "/contact", label: "Contact", short: "Contact" },
 ] as const;
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-        <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-3xl font-extrabold tracking-tight">Optim<span className="text-ember">.</span></span>
-          <span className="eyebrow">Catering</span>
+    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:px-5 md:flex md:justify-between md:py-4">
+        <Link to="/" className="flex min-w-0 items-baseline gap-2">
+          <span className="font-display text-2xl font-extrabold tracking-tight md:text-3xl">Optim<span className="text-ember">.</span></span>
+          <span className="eyebrow truncate !text-[0.62rem] md:!text-[0.72rem]">Catering</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex">
           {nav.map((n) => (
@@ -23,12 +24,12 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <a href={SITE.phoneHref} className="btn-ink !px-4 !py-2 text-sm">Sună acum</a>
+        <a href={SITE.phoneHref} className="btn-ink shrink-0 !px-4 !py-2 text-sm">Sună acum</a>
       </div>
-      <nav className="flex gap-5 overflow-x-auto px-5 pb-3 text-sm md:hidden">
+      <nav className="grid grid-cols-4 border-t border-border text-center text-[0.8rem] md:hidden">
         {nav.map((n) => (
-          <Link key={n.to} to={n.to} className="whitespace-nowrap text-muted-foreground" activeProps={{ className: "text-ember font-semibold" }}>
-            {n.label}
+          <Link key={n.to} to={n.to} className="truncate px-1 py-2.5 text-muted-foreground" activeProps={{ className: "text-ember font-semibold" }}>
+            {n.short}
           </Link>
         ))}
       </nav>
@@ -62,7 +63,10 @@ export function Footer() {
           <p className="mt-4"><a href={SITE.facebook} target="_blank" rel="noopener" className="underline">Urmărește-ne pe Facebook</a></p>
         </div>
       </div>
-      <p className="border-t border-ink-foreground/10 py-5 text-center text-xs opacity-50">© {new Date().getFullYear()} Optim Catering · Catering Gilău · Catering Cluj</p>
+      <div className="border-t border-ink-foreground/10 px-5 py-5 text-center text-xs">
+        <p className="opacity-50">© {new Date().getFullYear()} Optim Catering · Catering Gilău · Catering Cluj</p>
+        <button type="button" onClick={openCookieSettings} className="mt-2 underline opacity-60 hover:opacity-100 md:hidden">Setări cookie-uri</button>
+      </div>
     </footer>
   );
 }

@@ -68,7 +68,7 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; color-scheme: dark; overflow-x: hidden; }
   body {
     background-color: var(--color-background);
     background-image:
@@ -128,7 +128,11 @@
   &:disabled { opacity: .5; pointer-events: none; }
 }
 @utility field {
-  width: 100%; border-radius: calc(var(--radius) - 2px); padding: .8rem 1rem; font-size: .95rem;
+  display: block; width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box;
+  border-radius: calc(var(--radius) - 2px); padding: .8rem 1rem; font-size: 1rem; min-height: 3.1rem;
+  -webkit-appearance: none; appearance: none;
+  &::-webkit-date-and-time-value { text-align: left; }
+  &:is(select) { appearance: auto; -webkit-appearance: menulist; }
   background: color-mix(in oklab, var(--foreground) 5%, transparent);
   border: 1px solid color-mix(in oklab, var(--foreground) 16%, transparent);
   color: var(--foreground);
