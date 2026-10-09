@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://optimcatering.ro/</loc><priority>1.0</priority></url>
+<url><loc>https://optimcatering.ro/meniul-zilei</loc><changefreq>daily</changefreq></url>
+<url><loc>https://optimcatering.ro/catering-gilau</loc><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/catering-cluj</loc><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/catering-floresti</loc><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/meniuri</loc></url>
+<url><loc>https://optimcatering.ro/despre</loc></url>
+<url><loc>https://optimcatering.ro/contact</loc></url>
+</urlset>

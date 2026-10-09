@@ -73,5 +73,16 @@ export const localBusinessLd = {
     addressCountry: "RO",
   },
   areaServed: SITE.areas.map((a) => ({ "@type": "City", name: a })),
+  url: "https://optimcatering.ro/",
+  image: "https://optimcatering.ro/favicon.ico",
+  hasMap: "https://maps.google.com/?q=Str.+Republicii+191,+Gil%C4%83u",
+  geo: { "@type": "GeoCoordinates", latitude: 46.7536, longitude: 23.3826 },
+  openingHoursSpecification: [{
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "15:00",
+  }],
+  acceptsReservations: "True",
   sameAs: [SITE.facebook],
 };

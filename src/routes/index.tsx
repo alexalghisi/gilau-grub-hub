@@ -53,7 +53,7 @@ function Home() {
         <h2 className="mt-3 text-3xl md:text-4xl">Ce pregătim pentru tine</h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {services.map((s, i) => (
-            <Link key={s.t} to={s.to} className="group rounded-2xl border border-border p-7 transition hover:-translate-y-1 hover:border-ember">
+            <Link key={s.t} to={s.to} className="group rounded-2xl border border-border p-7 transition glass hover:-translate-y-1 hover:border-ember hover:shadow-[var(--glow)]">
               <span className="text-xs text-ember">0{i + 1}</span>
               <h3 className="mt-3 text-2xl">{s.t}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
@@ -62,7 +62,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="bg-ink text-ink-foreground">
+      <section className="glass text-foreground">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-20 md:grid-cols-2">
           <img src={daily} alt="Meniul zilei: ciorbă, pui la cuptor cu piure și salată" width={1024} height={1024} loading="lazy" className="aspect-square w-full rounded-2xl object-cover" />
           <div>
@@ -73,7 +73,7 @@ function Home() {
             </p>
             <ul className="mt-6 flex flex-wrap gap-2">
               {SITE.areas.map((a) => (
-                <li key={a} className="rounded-full border border-ink-foreground/20 px-3 py-1 text-sm">Catering {a}</li>
+                <li key={a} className="rounded-full border border-border px-3 py-1 text-sm">Catering {a}</li>
               ))}
             </ul>
           </div>

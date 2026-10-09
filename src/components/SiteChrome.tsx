@@ -10,7 +10,7 @@ const nav = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-border/70 glass">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
         <Link to="/" className="flex items-baseline gap-2">
           <span className="font-display text-2xl font-semibold">Optim</span>
@@ -54,6 +54,11 @@ export function Footer() {
         <div className="text-sm leading-7 opacity-80">
           <p className="eyebrow !text-ember-soft mb-2">Zone de livrare</p>
           {SITE.areas.join(" · ")}
+          <p className="mt-3 flex flex-col">
+            <Link to="/catering-gilau" className="hover:text-ember">Catering Gilău</Link>
+            <Link to="/catering-cluj" className="hover:text-ember">Catering Cluj-Napoca</Link>
+            <Link to="/catering-floresti" className="hover:text-ember">Catering Florești</Link>
+          </p>
           <p className="mt-4"><a href={SITE.facebook} target="_blank" rel="noopener" className="underline">Urmărește-ne pe Facebook</a></p>
         </div>
       </div>
@@ -66,7 +71,7 @@ export function MobileCallBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-border bg-background md:hidden">
       <a href={SITE.phoneHref} className="py-4 text-center text-sm font-semibold">Sună</a>
-      <Link to="/contact" className="bg-ember py-4 text-center text-sm font-semibold text-ink-foreground">Cere ofertă</Link>
+      <Link to="/contact" className="bg-ember py-4 text-center text-sm font-semibold text-primary-foreground">Cere ofertă</Link>
     </div>
   );
 }
