@@ -37,7 +37,7 @@ export const Route = createFileRoute("/meniul-zilei")({
 function PostCard({ p, featured }: { p: MenuPost; featured?: boolean }) {
   const date = new Date(p.created_time).toLocaleDateString("ro-RO", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
   return (
-    <article className={`glass overflow-hidden rounded-none ${featured ? "md:grid md:grid-cols-2" : ""}`}>
+    <article className={`glass overflow-hidden rounded-2xl ${featured ? "md:grid md:grid-cols-2" : ""}`}>
       {p.images.length > 0 && (
         <div className={`grid gap-1 ${p.images.length > 1 && featured ? "grid-cols-2" : ""}`}>
           {(featured ? p.images.slice(0, 4) : p.images.slice(0, 1)).map((src, i) => (
@@ -62,7 +62,7 @@ function Gallery({ images, date, big }: { images: string[]; date: string; big?: 
   return (
     <div className={`grid gap-2 ${big && list.length > 1 ? "grid-cols-2" : ""}`}>
       {list.map((src, i) => (
-        <a key={src} href={src} target="_blank" rel="noopener" className={`block overflow-hidden border-2 border-foreground ${big && i === 0 && list.length === 3 ? "col-span-2" : ""}`}>
+        <a key={src} href={src} target="_blank" rel="noopener" className={`block overflow-hidden border border-border ${big && i === 0 && list.length === 3 ? "col-span-2" : ""}`}>
           <img src={src} alt={`Meniul zilei Optim Catering, ${longDate(date)} — poza ${i + 1}`} loading={big ? "eager" : "lazy"} className="aspect-[4/3] w-full object-cover transition duration-300 hover:scale-105" />
         </a>
       ))}
@@ -73,17 +73,17 @@ function Gallery({ images, date, big }: { images: string[]; date: string; big?: 
 function AiMenu({ m, big }: { m: PublicMenu; big?: boolean }) {
   return (
     <article className={`panel ${big ? "grid gap-0 md:grid-cols-[1.1fr_1fr]" : ""}`}>
-      {big && <div className="border-b-2 border-foreground p-3 md:border-b-0 md:border-r-2"><Gallery images={m.images} date={m.menu_date} big /></div>}
-      {!big && m.images.length > 0 && <div className="border-b-2 border-foreground p-2"><Gallery images={m.images} date={m.menu_date} /></div>}
+      {big && <div className="border-b border-border p-3 md:border-b-0 md:border-r"><Gallery images={m.images} date={m.menu_date} big /></div>}
+      {!big && m.images.length > 0 && <div className="border-b border-border p-2"><Gallery images={m.images} date={m.menu_date} /></div>}
       <div className="p-6 md:p-8">
         <p className="eyebrow capitalize">{longDate(m.menu_date)}</p>
-        <ul className="mt-5 divide-y-2 divide-foreground/15">
+        <ul className="mt-5 divide-y divide-border">
           {m.items.map((d) => (
             <li key={d.name} className="py-3">
               <div className="flex items-baseline gap-3">
                 <p className={`font-display font-bold ${big ? "text-2xl" : "text-lg"}`}>{d.name}</p>
-                <span className="flex-1 border-b-2 border-dotted border-foreground/30" />
-                {d.price != null && <span className="bg-ember-soft px-2 font-bold">{d.price} lei</span>}
+                <span className="flex-1 border-b border-dotted border-foreground/20" />
+                {d.price != null && <span className="rounded-full bg-ember px-2.5 text-sm font-bold text-background">{d.price} lei</span>}
               </div>
               {d.description && <p className="mt-1 text-sm text-muted-foreground">{d.description}</p>}
               {d.allergens.length > 0 && <p className="mt-1 text-xs"><span className="font-semibold">Alergeni:</span> {d.allergens.join(", ")}</p>}
