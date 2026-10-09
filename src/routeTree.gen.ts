@@ -10,6 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CateringClujRouteImport } from './routes/catering-cluj'
+import { Route as CateringFlorestiRouteImport } from './routes/catering-floresti'
+import { Route as CateringGilauRouteImport } from './routes/catering-gilau'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreRouteImport } from './routes/despre'
 import { Route as MeniulZileiRouteImport } from './routes/meniul-zilei'
@@ -18,6 +21,21 @@ import { Route as MeniuriRouteImport } from './routes/meniuri'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CateringClujRoute = CateringClujRouteImport.update({
+  id: '/catering-cluj',
+  path: '/catering-cluj',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CateringFlorestiRoute = CateringFlorestiRouteImport.update({
+  id: '/catering-floresti',
+  path: '/catering-floresti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CateringGilauRoute = CateringGilauRouteImport.update({
+  id: '/catering-gilau',
+  path: '/catering-gilau',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -43,6 +61,9 @@ const MeniuriRoute = MeniuriRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/catering-cluj': typeof CateringClujRoute
+  '/catering-floresti': typeof CateringFlorestiRoute
+  '/catering-gilau': typeof CateringGilauRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
@@ -50,6 +71,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/catering-cluj': typeof CateringClujRoute
+  '/catering-floresti': typeof CateringFlorestiRoute
+  '/catering-gilau': typeof CateringGilauRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
@@ -58,6 +82,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/catering-cluj': typeof CateringClujRoute
+  '/catering-floresti': typeof CateringFlorestiRoute
+  '/catering-gilau': typeof CateringGilauRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
@@ -65,14 +92,42 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/despre' | '/meniul-zilei' | '/meniuri'
+  fullPaths:
+    | '/'
+    | '/catering-cluj'
+    | '/catering-floresti'
+    | '/catering-gilau'
+    | '/contact'
+    | '/despre'
+    | '/meniul-zilei'
+    | '/meniuri'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/despre' | '/meniul-zilei' | '/meniuri'
-  id: '__root__' | '/' | '/contact' | '/despre' | '/meniul-zilei' | '/meniuri'
+  to:
+    | '/'
+    | '/catering-cluj'
+    | '/catering-floresti'
+    | '/catering-gilau'
+    | '/contact'
+    | '/despre'
+    | '/meniul-zilei'
+    | '/meniuri'
+  id:
+    | '__root__'
+    | '/'
+    | '/catering-cluj'
+    | '/catering-floresti'
+    | '/catering-gilau'
+    | '/contact'
+    | '/despre'
+    | '/meniul-zilei'
+    | '/meniuri'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CateringClujRoute: typeof CateringClujRoute
+  CateringFlorestiRoute: typeof CateringFlorestiRoute
+  CateringGilauRoute: typeof CateringGilauRoute
   ContactRoute: typeof ContactRoute
   DespreRoute: typeof DespreRoute
   MeniulZileiRoute: typeof MeniulZileiRoute
@@ -86,6 +141,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catering-cluj': {
+      id: '/catering-cluj'
+      path: '/catering-cluj'
+      fullPath: '/catering-cluj'
+      preLoaderRoute: typeof CateringClujRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catering-floresti': {
+      id: '/catering-floresti'
+      path: '/catering-floresti'
+      fullPath: '/catering-floresti'
+      preLoaderRoute: typeof CateringFlorestiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catering-gilau': {
+      id: '/catering-gilau'
+      path: '/catering-gilau'
+      fullPath: '/catering-gilau'
+      preLoaderRoute: typeof CateringGilauRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -121,6 +197,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CateringClujRoute: CateringClujRoute,
+  CateringFlorestiRoute: CateringFlorestiRoute,
+  CateringGilauRoute: CateringGilauRoute,
   ContactRoute: ContactRoute,
   DespreRoute: DespreRoute,
   MeniulZileiRoute: MeniulZileiRoute,
