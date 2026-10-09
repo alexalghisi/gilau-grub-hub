@@ -10,7 +10,7 @@ export type Area = {
   intro: string;
   points: string[];
   distance: string;
-} satisfies Record<string, Area>;
+};
 
 export const AREAS = {
   gilau: {
