@@ -40,7 +40,7 @@ export function CookieConsent() {
     return (
       <button
         onClick={() => { setDetails(true); setOpen(true); }}
-        className="fixed bottom-16 left-3 z-40 rounded-2xl border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground shadow-sm hover:text-foreground md:bottom-4"
+        className="fixed bottom-4 left-3 z-40 hidden rounded-2xl border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground shadow-sm hover:text-foreground md:block"
         aria-label="Setări cookie-uri"
       >
         Cookie-uri
