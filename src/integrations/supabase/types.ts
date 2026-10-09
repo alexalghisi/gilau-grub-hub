@@ -14,7 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      fb_connection: {
+        Row: {
+          id: number
+          page_id: string
+          page_name: string | null
+          page_token: string
+          updated_at: string
+        }
+        Insert: {
+          id?: number
+          page_id: string
+          page_name?: string | null
+          page_token: string
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          page_id?: string
+          page_name?: string | null
+          page_token?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      fb_posts: {
+        Row: {
+          created_time: string
+          id: string
+          images: string[]
+          message: string | null
+          permalink: string | null
+          synced_at: string
+        }
+        Insert: {
+          created_time: string
+          id: string
+          images?: string[]
+          message?: string | null
+          permalink?: string | null
+          synced_at?: string
+        }
+        Update: {
+          created_time?: string
+          id?: string
+          images?: string[]
+          message?: string | null
+          permalink?: string | null
+          synced_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
