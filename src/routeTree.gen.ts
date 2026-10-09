@@ -17,6 +17,10 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreRouteImport } from './routes/despre'
 import { Route as MeniulZileiRouteImport } from './routes/meniul-zilei'
 import { Route as MeniuriRouteImport } from './routes/meniuri'
+import { Route as AdminFacebookRouteImport } from './routes/admin.facebook'
+import { Route as ApiPublicFacebookCallbackRouteImport } from './routes/api/public/facebook/callback'
+import { Route as ApiPublicFacebookLoginRouteImport } from './routes/api/public/facebook/login'
+import { Route as ApiPublicFacebookSyncRouteImport } from './routes/api/public/facebook/sync'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +62,27 @@ const MeniuriRoute = MeniuriRouteImport.update({
   path: '/meniuri',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminFacebookRoute = AdminFacebookRouteImport.update({
+  id: '/admin/facebook',
+  path: '/admin/facebook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicFacebookCallbackRoute =
+  ApiPublicFacebookCallbackRouteImport.update({
+    id: '/api/public/facebook/callback',
+    path: '/api/public/facebook/callback',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicFacebookLoginRoute = ApiPublicFacebookLoginRouteImport.update({
+  id: '/api/public/facebook/login',
+  path: '/api/public/facebook/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicFacebookSyncRoute = ApiPublicFacebookSyncRouteImport.update({
+  id: '/api/public/facebook/sync',
+  path: '/api/public/facebook/sync',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +93,10 @@ export interface FileRoutesByFullPath {
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
   '/meniuri': typeof MeniuriRoute
+  '/admin/facebook': typeof AdminFacebookRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/login': typeof ApiPublicFacebookLoginRoute
+  '/api/public/facebook/sync': typeof ApiPublicFacebookSyncRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +107,10 @@ export interface FileRoutesByTo {
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
   '/meniuri': typeof MeniuriRoute
+  '/admin/facebook': typeof AdminFacebookRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/login': typeof ApiPublicFacebookLoginRoute
+  '/api/public/facebook/sync': typeof ApiPublicFacebookSyncRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +122,10 @@ export interface FileRoutesById {
   '/despre': typeof DespreRoute
   '/meniul-zilei': typeof MeniulZileiRoute
   '/meniuri': typeof MeniuriRoute
+  '/admin/facebook': typeof AdminFacebookRoute
+  '/api/public/facebook/callback': typeof ApiPublicFacebookCallbackRoute
+  '/api/public/facebook/login': typeof ApiPublicFacebookLoginRoute
+  '/api/public/facebook/sync': typeof ApiPublicFacebookSyncRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +138,10 @@ export interface FileRouteTypes {
     | '/despre'
     | '/meniul-zilei'
     | '/meniuri'
+    | '/admin/facebook'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/login'
+    | '/api/public/facebook/sync'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +152,10 @@ export interface FileRouteTypes {
     | '/despre'
     | '/meniul-zilei'
     | '/meniuri'
+    | '/admin/facebook'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/login'
+    | '/api/public/facebook/sync'
   id:
     | '__root__'
     | '/'
@@ -121,6 +166,10 @@ export interface FileRouteTypes {
     | '/despre'
     | '/meniul-zilei'
     | '/meniuri'
+    | '/admin/facebook'
+    | '/api/public/facebook/callback'
+    | '/api/public/facebook/login'
+    | '/api/public/facebook/sync'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +181,10 @@ export interface RootRouteChildren {
   DespreRoute: typeof DespreRoute
   MeniulZileiRoute: typeof MeniulZileiRoute
   MeniuriRoute: typeof MeniuriRoute
+  AdminFacebookRoute: typeof AdminFacebookRoute
+  ApiPublicFacebookCallbackRoute: typeof ApiPublicFacebookCallbackRoute
+  ApiPublicFacebookLoginRoute: typeof ApiPublicFacebookLoginRoute
+  ApiPublicFacebookSyncRoute: typeof ApiPublicFacebookSyncRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +245,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MeniuriRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/facebook': {
+      id: '/admin/facebook'
+      path: '/admin/facebook'
+      fullPath: '/admin/facebook'
+      preLoaderRoute: typeof AdminFacebookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/facebook/callback': {
+      id: '/api/public/facebook/callback'
+      path: '/api/public/facebook/callback'
+      fullPath: '/api/public/facebook/callback'
+      preLoaderRoute: typeof ApiPublicFacebookCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/facebook/login': {
+      id: '/api/public/facebook/login'
+      path: '/api/public/facebook/login'
+      fullPath: '/api/public/facebook/login'
+      preLoaderRoute: typeof ApiPublicFacebookLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/facebook/sync': {
+      id: '/api/public/facebook/sync'
+      path: '/api/public/facebook/sync'
+      fullPath: '/api/public/facebook/sync'
+      preLoaderRoute: typeof ApiPublicFacebookSyncRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +285,10 @@ const rootRouteChildren: RootRouteChildren = {
   DespreRoute: DespreRoute,
   MeniulZileiRoute: MeniulZileiRoute,
   MeniuriRoute: MeniuriRoute,
+  AdminFacebookRoute: AdminFacebookRoute,
+  ApiPublicFacebookCallbackRoute: ApiPublicFacebookCallbackRoute,
+  ApiPublicFacebookLoginRoute: ApiPublicFacebookLoginRoute,
+  ApiPublicFacebookSyncRoute: ApiPublicFacebookSyncRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
