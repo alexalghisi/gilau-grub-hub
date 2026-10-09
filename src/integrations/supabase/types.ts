@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      daily_menus: {
+        Row: {
+          created_at: string
+          id: string
+          images: string[]
+          items: Json
+          menu_date: string
+          published: boolean
+          source_text: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          images?: string[]
+          items?: Json
+          menu_date: string
+          published?: boolean
+          source_text?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          images?: string[]
+          items?: Json
+          menu_date?: string
+          published?: boolean
+          source_text?: string | null
+        }
+        Relationships: []
+      }
       fb_connection: {
         Row: {
           id: number

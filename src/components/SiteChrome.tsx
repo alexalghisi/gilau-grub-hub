@@ -10,10 +10,10 @@ const nav = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 glass">
+    <header className="sticky top-0 z-40 border-b-2 border-foreground bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
         <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-2xl font-semibold">Optim</span>
+          <span className="font-display text-3xl font-extrabold tracking-tight">Optim<span className="text-ember">.</span></span>
           <span className="eyebrow">Catering</span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm md:flex">
@@ -39,6 +39,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="bg-ink text-ink-foreground">
+      <div className="stitch" aria-hidden="true" />
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl">Optim Catering</p>

@@ -13,4 +13,7 @@
 
 - Daily menu comes from the Facebook page via Graph API; the page token lives only in `fb_connection` (service-role only), posts in public-readable `fb_posts`. Why: the token must never reach the browser.
 - `/api/public/facebook/sync` is called by a scheduled job and only re-reads the connected page's posts. Why: public routes must stay idempotent and harmless.
-- `/meniul-zilei` falls back to `DAILY_MENUS` in `src/lib/site.ts` when no Facebook posts are synced. Why: the page is never empty before connection.
+- `/meniul-zilei` shows, in priority order: published `daily_menus` (admin + AI), then `fb_posts`, then `DAILY_MENUS` in `src/lib/site.ts`. Why: the page is never empty.
+- Admin actions (`/admin/meniu`, `/admin/facebook`) are gated by the `ADMIN_KEY` secret checked inside every server function. Why: there are no user accounts.
+- Menu photos live in the private `menu-photos` bucket and are served via signed URLs, because the workspace blocks public buckets.
+- AI menu extraction runs server-side in `src/lib/menu-ai.server.ts` through the Lovable AI Gateway with structured output. Why: keys and prompts stay on the server.

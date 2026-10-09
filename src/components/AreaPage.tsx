@@ -92,8 +92,8 @@ export function AreaPage({ a }: { a: Area }) {
             <Link to="/contact" className="btn-outline">Cere ofertă</Link>
           </div>
         </div>
-        <div className="glass overflow-hidden rounded-3xl p-2">
-          <img src={hero} alt={`Catering pentru evenimente în ${a.city} — Optim Catering`} width={1024} height={1024} className="aspect-[4/3] w-full rounded-2xl object-cover" />
+        <div className="glass overflow-hidden rounded-none p-2">
+          <img src={hero} alt={`Catering pentru evenimente în ${a.city} — Optim Catering`} width={1024} height={1024} className="aspect-[4/3] w-full rounded-none object-cover" />
         </div>
       </section>
 
@@ -101,7 +101,7 @@ export function AreaPage({ a }: { a: Area }) {
         <h2 className="text-2xl md:text-3xl">Ce oferim în {a.city}</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {a.points.map((p, i) => (
-            <li key={p} className="glass rounded-2xl p-6">
+            <li key={p} className="glass rounded-none p-6">
               <span className="font-display text-sm text-ember">0{i + 1}</span>
               <p className="mt-3 font-semibold">{p}</p>
             </li>
@@ -114,7 +114,7 @@ export function AreaPage({ a }: { a: Area }) {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-24">
-        <div className="glass rounded-3xl p-8">
+        <div className="glass rounded-none p-8">
           <h2 className="text-xl">Livrăm și în zonele apropiate</h2>
           <div className="mt-5 flex flex-wrap gap-3">
             {others.map((o) => (

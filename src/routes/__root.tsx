@@ -64,7 +64,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" },
     ],
     scripts: [
       { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=JSON.parse(localStorage.getItem('oc-consent')||'null')}catch(e){}var g=function(b){return b?'granted':'denied'};gtag('consent','default',{ad_storage:g(c&&c.ads),ad_user_data:g(c&&c.ads),ad_personalization:g(c&&c.personalized),analytics_storage:g(c&&c.analytics),wait_for_update:500});if(!(c&&c.personalized)){(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1;}` },
