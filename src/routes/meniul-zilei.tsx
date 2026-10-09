@@ -34,7 +34,7 @@ export const Route = createFileRoute("/meniul-zilei")({
 function PostCard({ p, featured }: { p: MenuPost; featured?: boolean }) {
   const date = new Date(p.created_time).toLocaleDateString("ro-RO", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
   return (
-    <article className={`glass overflow-hidden rounded-3xl ${featured ? "md:grid md:grid-cols-2" : ""}`}>
+    <article className={`glass overflow-hidden rounded-none ${featured ? "md:grid md:grid-cols-2" : ""}`}>
       {p.images.length > 0 && (
         <div className={`grid gap-1 ${p.images.length > 1 && featured ? "grid-cols-2" : ""}`}>
           {(featured ? p.images.slice(0, 4) : p.images.slice(0, 1)).map((src, i) => (

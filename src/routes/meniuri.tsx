@@ -24,7 +24,7 @@ function Page() {
       <p className="mt-4 max-w-[60ch] text-muted-foreground">Prețurile pentru evenimente se stabilesc în funcție de meniu și numărul de invitați.</p>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {groups.map((g) => (
-          <section key={g.t} className="rounded-2xl border border-border bg-card p-7">
+          <section key={g.t} className="rounded-none border border-border bg-card p-7">
             <h2 className="text-2xl">{g.t}</h2>
             <p className="mt-2 text-sm text-muted-foreground">{g.d}</p>
             <ul className="mt-5 space-y-2 border-t border-border pt-5 text-sm">

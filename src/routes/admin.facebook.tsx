@@ -28,9 +28,9 @@ function Admin() {
     <div className="mx-auto max-w-lg px-5 py-20">
       <p className="eyebrow">Administrare</p>
       <h1 className="mt-3 text-3xl md:text-4xl">Conectare pagina Facebook</h1>
-      {status === "ok" && <p className="mt-6 rounded-xl border border-ember p-4 text-sm">Pagina a fost conectată. Meniul se sincronizează automat.</p>}
-      {status === "eroare" && <p className="mt-6 rounded-xl border border-destructive p-4 text-sm">Conectarea nu a reușit. Încearcă din nou.</p>}
-      <div className="glass mt-8 rounded-2xl p-6 text-sm">
+      {status === "ok" && <p className="mt-6 rounded-none border border-ember p-4 text-sm">Pagina a fost conectată. Meniul se sincronizează automat.</p>}
+      {status === "eroare" && <p className="mt-6 rounded-none border border-destructive p-4 text-sm">Conectarea nu a reușit. Încearcă din nou.</p>}
+      <div className="glass mt-8 rounded-none p-6 text-sm">
         <p><span className="text-muted-foreground">Stare:</span> {data.connected ? `Conectat — ${data.pageName}` : "Neconectat"}</p>
         <p className="mt-2"><span className="text-muted-foreground">Ultima sincronizare:</span> {data.lastSync ? new Date(data.lastSync).toLocaleString("ro-RO") : "—"}</p>
       </div>

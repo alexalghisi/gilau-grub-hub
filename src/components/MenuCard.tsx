@@ -2,7 +2,7 @@ import { fmtDate, type DailyMenu } from "@/lib/site";
 
 export function MenuCard({ menu, featured }: { menu: DailyMenu; featured?: boolean }) {
   return (
-    <article className={featured ? "rounded-2xl glass p-7 shadow-[var(--glow)]" : "rounded-2xl border border-border bg-card p-6"}>
+    <article className={featured ? "rounded-none glass p-7 shadow-[var(--glow)]" : "rounded-none border border-border bg-card p-6"}>
       <div className="flex items-center justify-between gap-3">
         <span className={featured ? "eyebrow !text-ember-soft" : "eyebrow"}>{featured ? "Oferta zilei" : "Meniu"}</span>
         <time dateTime={menu.date} className="text-xs capitalize opacity-70">{fmtDate(menu.date)}</time>
