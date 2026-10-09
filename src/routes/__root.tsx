@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer, MobileCallBar } from "@/components/SiteChrome";
 import { localBusinessLd } from "@/lib/site";
+import { CookieConsent } from "@/components/CookieConsent";
 
 function NotFoundComponent() {
   return (
@@ -66,6 +67,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" },
     ],
     scripts: [
+      { children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;var c=null;try{c=JSON.parse(localStorage.getItem('oc-consent')||'null')}catch(e){}var g=function(b){return b?'granted':'denied'};gtag('consent','default',{ad_storage:g(c&&c.ads),ad_user_data:g(c&&c.ads),ad_personalization:g(c&&c.personalized),analytics_storage:g(c&&c.analytics),wait_for_update:500});if(!(c&&c.personalized)){(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1;}` },
       { type: "application/ld+json", children: JSON.stringify(localBusinessLd) },
       { async: true, src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4079300108937036", crossOrigin: "anonymous" },
     ],
@@ -100,6 +102,7 @@ function RootComponent() {
       </main>
       <Footer />
       <MobileCallBar />
+      <CookieConsent />
     </QueryClientProvider>
   );
 }
