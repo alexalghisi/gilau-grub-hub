@@ -5,6 +5,7 @@ const KEY = "oc-consent";
 
 function apply(c: Consent) {
   localStorage.setItem(KEY, JSON.stringify(c));
+  window.dispatchEvent(new Event("oc-consent-change"));
   const w = window as unknown as { gtag?: (...a: unknown[]) => void };
   const g = (b: boolean) => (b ? "granted" : "denied");
   w.gtag?.("consent", "update", {
