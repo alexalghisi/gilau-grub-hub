@@ -15,7 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer, MobileCallBar } from "@/components/SiteChrome";
 import { localBusinessLd } from "@/lib/site";
 import { CookieConsent } from "@/components/CookieConsent";
-import { AdBanner, AdNative, AdSocialBar } from "@/components/Ads";
+import { AdBanner, AdNative, AdPopunder, AdSocialBar } from "@/components/Ads";
 
 function NotFoundComponent() {
   return (
@@ -108,6 +108,7 @@ function RootComponent() {
       <MobileCallBar />
       <CookieConsent />
       <AdSocialBar />
+      <AdPopunder />
     </QueryClientProvider>
   );
 }

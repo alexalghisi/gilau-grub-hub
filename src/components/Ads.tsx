@@ -55,6 +55,18 @@ export function AdNative() {
   return <div className="mx-auto my-8 max-w-6xl px-5"><div id={`container-${NATIVE}`} /></div>;
 }
 
+export function AdPopunder() {
+  const ok = useAdsAllowed();
+  useEffect(() => {
+    if (!ok || document.getElementById("adst-pop")) return;
+    const s = document.createElement("script");
+    s.id = "adst-pop";
+    s.src = "https://pl31905434.profitableratecpmnetwork.com/00/9c/5a/009c5ab8ae14333b7a751cad1a04a51b.js";
+    document.body.appendChild(s);
+  }, [ok]);
+  return null;
+}
+
 export function AdSocialBar() {
   const ok = useAdsAllowed();
   useEffect(() => {
