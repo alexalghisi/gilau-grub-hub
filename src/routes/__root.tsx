@@ -108,6 +108,7 @@ function RootComponent() {
       <MobileCallBar />
       <CookieConsent />
       <AdSocialBar />
+      <AdPopunder />
     </QueryClientProvider>
   );
 }
