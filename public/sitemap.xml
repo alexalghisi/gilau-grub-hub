@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://optimcatering.ro/</loc><priority>1.0</priority></url>
-<url><loc>https://optimcatering.ro/meniul-zilei</loc><changefreq>daily</changefreq></url>
-<url><loc>https://optimcatering.ro/catering-gilau</loc><priority>0.9</priority></url>
-<url><loc>https://optimcatering.ro/catering-cluj</loc><priority>0.9</priority></url>
-<url><loc>https://optimcatering.ro/catering-floresti</loc><priority>0.9</priority></url>
-<url><loc>https://optimcatering.ro/meniuri</loc></url>
-<url><loc>https://optimcatering.ro/despre</loc></url>
-<url><loc>https://optimcatering.ro/contact</loc></url>
+<url><loc>https://optimcatering.ro/</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://optimcatering.ro/meniul-zilei</loc><lastmod>2026-10-20</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/catering-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+<url><loc>https://optimcatering.ro/catering-floresti</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/catering-gilau</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://optimcatering.ro/catering-apahida</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-baciu</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-luna-de-sus</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-savadisla</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-huedin</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-turda</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-nunta-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-botez-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-firme-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/platouri-aperitive-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/catering-craciun-revelion-cluj</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://optimcatering.ro/meniuri</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://optimcatering.ro/despre</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://optimcatering.ro/contact</loc><lastmod>2026-10-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
