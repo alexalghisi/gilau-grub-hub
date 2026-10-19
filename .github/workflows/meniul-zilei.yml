@@ -1,0 +1,52 @@
+name: Meniul zilei din Facebook
+
+# The page posts tomorrow's menu in the evening (~22:30 RO), sometimes in the morning.
+on:
+  schedule:
+    - cron: "10 20 * * *" # 23:10 RO (summer) / 22:10 (winter)
+    - cron: "40 5 * * *"  # 08:40 / 07:40 RO
+    - cron: "40 8 * * *"  # 11:40 / 10:40 RO
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: meniul-zilei
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: app
+          sparse-checkout: scripts
+
+      - name: Checkout meniu-data branch
+        run: |
+          git clone --depth 1 --branch meniu-data "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data \
+            || { mkdir data && cd data && git init -b meniu-data && git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"; }
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch Facebook posts
+        run: node app/scripts/sync-fb-menu.mjs data
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+
+      - name: Commit menu data
+        working-directory: data
+        run: |
+          git config user.name "alexalghisi"
+          git config user.email "10101138+alexalghisi@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "No new menu"; exit 0; fi
+          git commit -m "Meniul zilei $(date -u +%F)"
+          git push origin meniu-data
