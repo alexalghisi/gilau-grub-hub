@@ -5,6 +5,7 @@ import { getDailyMenus, type PublicMenu } from "@/lib/menus.functions";
 import { MenuCard } from "@/components/MenuCard";
 import { DAILY_MENUS, SITE } from "@/lib/site";
 import { pageHead } from "@/lib/seo";
+import { waHref } from "@/components/WhatsApp";
 
 const postsQ = queryOptions({ queryKey: ["menu-posts"], queryFn: () => getMenuPosts(), staleTime: 300_000 });
 
@@ -14,8 +15,8 @@ export const Route = createFileRoute("/meniul-zilei")({
   head: () => ({
     ...pageHead(
       "/meniul-zilei",
-      "Meniul zilei Gilău & Cluj — Optim Catering",
-      "Meniul zilei Optim Catering, actualizat zilnic: supe, feluri principale și deserturi cu livrare în Gilău, Florești și Cluj-Napoca.",
+      "Meniul zilei Cluj, Florești & Gilău — livrare caldă | Optim Catering",
+      "Meniul zilei în Cluj, actualizat zilnic: ciorbe, feluri principale și deserturi gătite în Gilău, cu livrare caldă în Florești și Cluj-Napoca. Comandă pe WhatsApp: 0727 944 844.",
     ),
     scripts: [{
       type: "application/ld+json",
@@ -104,7 +105,7 @@ function Page() {
       <div className="mx-auto max-w-6xl px-5 py-14">
         <p className="eyebrow">Gătit azi în Gilău</p>
         <h1 className="mt-3 text-5xl md:text-7xl">Meniul zilei</h1>
-        <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi la <a className="font-bold text-foreground underline decoration-ember decoration-2" href={SITE.phoneHref}>{SITE.phone}</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
+        <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi la <a className="font-bold text-foreground underline decoration-ember decoration-2" href={waHref("meniul zilei: ")} target="_blank" rel="noopener">{SITE.phone} pe WhatsApp</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
         <div className="mt-10"><AiMenu m={latest} big /></div>
         {older.length > 0 && <>
           <h2 className="mt-20 text-4xl">Istoric meniuri</h2>
@@ -119,7 +120,7 @@ function Page() {
       <div className="mx-auto max-w-6xl px-5 py-14">
         <p className="eyebrow">Preluat automat de pe Facebook</p>
         <h1 className="mt-3 text-4xl md:text-5xl">Meniul zilei</h1>
-        <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi telefonic la <a className="font-semibold text-foreground" href={SITE.phoneHref}>{SITE.phone}</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
+        <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi rapide la <a className="font-semibold text-foreground" href={waHref("meniul zilei: ")} target="_blank" rel="noopener">{SITE.phone} pe WhatsApp</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
         <div className="mt-10"><PostCard p={latest} featured /></div>
         {older.length > 0 && <>
           <h2 className="mt-20 text-3xl">Istoric meniuri</h2>
@@ -133,7 +134,7 @@ function Page() {
     <div className="mx-auto max-w-6xl px-5 py-14">
       <p className="eyebrow">Actualizat zilnic</p>
       <h1 className="mt-3 text-4xl md:text-5xl">Meniul zilei</h1>
-      <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi telefonic la <a className="font-semibold text-foreground" href={SITE.phoneHref}>{SITE.phone}</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
+      <p className="mt-4 max-w-[55ch] text-muted-foreground">Comenzi rapide la <a className="font-semibold text-foreground" href={waHref("meniul zilei: ")} target="_blank" rel="noopener">{SITE.phone} pe WhatsApp</a>. Livrare în Gilău, Florești și Cluj-Napoca.</p>
       <div className="mt-10 max-w-xl"><MenuCard menu={today} featured /></div>
 
       <h2 className="mt-20 text-3xl">Istoric meniuri</h2>

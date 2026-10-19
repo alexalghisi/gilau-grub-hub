@@ -2,12 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SITE } from "@/lib/site";
 import { pageHead } from "@/lib/seo";
+import { WaIcon, WhatsAppLink } from "@/components/WhatsApp";
 
 export const Route = createFileRoute("/contact")({
   head: () => pageHead(
     "/contact",
     "Contact & cerere ofertă catering Cluj | Optim Catering",
-    "Cere o ofertă de catering pentru nuntă, botez sau firmă în Gilău, Florești și Cluj-Napoca. Răspundem rapid telefonic sau pe email.",
+    "Cere o ofertă de catering pentru nuntă, botez sau firmă în Gilău, Florești și Cluj-Napoca. Răspundem rapid pe WhatsApp, telefonic sau pe email.",
   ),
   component: Page,
 });
@@ -20,7 +21,8 @@ function Page() {
         <p className="eyebrow">Contact</p>
         <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Cere o ofertă de catering</h1>
         <address className="mt-6 space-y-2 not-italic text-base sm:text-lg">
-          <p><a href={SITE.phoneHref} className="font-display text-3xl text-ember">{SITE.phone}</a></p>
+          <p><WhatsAppLink topic="catering pentru " className="inline-flex items-center gap-2 font-display text-3xl text-ember"><WaIcon className="h-7 w-7 text-[#25D366]" />{SITE.phone}</WhatsAppLink></p>
+          <p className="text-sm text-muted-foreground">Scrie-ne pe WhatsApp sau <a href={SITE.phoneHref} className="underline">sună direct</a>.</p>
           <p className="break-words"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
           <p>{SITE.street}, {SITE.locality}, județul {SITE.region}</p>
           <p className="text-muted-foreground">{SITE.hours}</p>
