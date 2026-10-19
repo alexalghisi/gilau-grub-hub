@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import { SITE } from "@/lib/site";
 
 export const WA_TEXT =
-  "Bună ziua! Am găsit acest catering pe site-ul https://optimcatering.ro/ și mi s-a părut foarte interesant. Aș dori să comand ";
+  "Bună ziua! V-am descoperit pe optimcatering.ro și aș dori să plasez o comandă";
 
 /** Link wa.me care deschide WhatsApp cu mesajul deja scris. `topic` e adăugat la final (ex. „platouri pentru 20 de persoane”). */
 export const waHref = (topic?: string) =>
-  `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(topic ? `${WA_TEXT}${topic}` : WA_TEXT)}`;
+  `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(topic ? `${WA_TEXT} – ${topic}` : WA_TEXT)}`;
 
 export function WaIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
