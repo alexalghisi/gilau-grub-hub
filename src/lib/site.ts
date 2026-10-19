@@ -2,6 +2,7 @@ export const SITE = {
   name: "Optim Catering",
   phone: "0727 944 844",
   phoneHref: "tel:+40727944844",
+  whatsapp: "40727944844",
   email: "contact@optimcatering.ro",
   street: "Str. Republicii 191",
   locality: "Gilău",
@@ -9,7 +10,7 @@ export const SITE = {
   postal: "407310",
   hours: "Luni – Vineri, 09:00 – 15:00",
   facebook: "https://www.facebook.com/p/Optim-Catering-100080055056942/",
-  areas: ["Gilău", "Florești", "Cluj-Napoca", "Luna de Sus", "Săvădisla", "Căpușu Mare"],
+  areas: ["Gilău", "Florești", "Cluj-Napoca", "Apahida", "Baciu", "Luna de Sus", "Săvădisla", "Căpușu Mare", "Huedin", "Turda"],
 };
 
 export type Dish = { name: string; note?: string; price: number };
@@ -58,9 +59,10 @@ export const fmtDate = (iso: string) =>
 export const localBusinessLd = {
   "@context": "https://schema.org",
   "@type": ["FoodEstablishment", "LocalBusiness"],
+  "@id": "https://optimcatering.ro/#business",
   name: SITE.name,
-  description: "Catering în Gilău, Florești și Cluj-Napoca: meniul zilei, evenimente, nunți, botezuri și pachete de prânz pentru firme.",
-  telephone: SITE.phone,
+  description: "Catering în Cluj-Napoca, Florești, Gilău și tot județul Cluj: meniul zilei, platouri, evenimente, nunți, botezuri și pachete de prânz pentru firme.",
+  telephone: "+40727944844",
   email: SITE.email,
   servesCuisine: "Românească",
   priceRange: "$$",
@@ -72,7 +74,10 @@ export const localBusinessLd = {
     postalCode: SITE.postal,
     addressCountry: "RO",
   },
-  areaServed: SITE.areas.map((a) => ({ "@type": "City", name: a })),
+  areaServed: [
+    ...SITE.areas.map((a) => ({ "@type": "City", name: a })),
+    { "@type": "AdministrativeArea", name: "Județul Cluj" },
+  ],
   url: "https://optimcatering.ro/",
   image: "https://optimcatering.ro/favicon.ico",
   hasMap: "https://maps.google.com/?q=Str.+Republicii+191,+Gil%C4%83u",
@@ -82,6 +87,13 @@ export const localBusinessLd = {
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "09:00",
     closes: "15:00",
+  }],
+  contactPoint: [{
+    "@type": "ContactPoint",
+    telephone: "+40727944844",
+    contactType: "customer service",
+    availableLanguage: ["ro"],
+    url: "https://wa.me/40727944844",
   }],
   acceptsReservations: "True",
   sameAs: [SITE.facebook],

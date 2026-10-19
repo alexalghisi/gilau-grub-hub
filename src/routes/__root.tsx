@@ -15,7 +15,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer, MobileCallBar } from "@/components/SiteChrome";
 import { localBusinessLd } from "@/lib/site";
 import { CookieConsent } from "@/components/CookieConsent";
-import { AdBanner, AdNative, AdPopunder, AdSocialBar } from "@/components/Ads";
+import { AdBanner, AdNative, AdRails, AdSocialBar } from "@/components/Ads";
+import { WhatsAppFloat } from "@/components/WhatsApp";
 
 function NotFoundComponent() {
   return (
@@ -50,21 +51,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Optim Catering — Catering Gilău & Cluj" },
-      { name: "description", content: "Catering în Gilău, Florești și Cluj-Napoca." },
+      { title: "Optim Catering — Catering Cluj, Florești & Gilău" },
+      { name: "description", content: "Catering în Cluj-Napoca, Florești, Gilău și tot județul Cluj: meniul zilei, platouri, nunți, botezuri și firme." },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#c2410c" },
       { property: "og:site_name", content: "Optim Catering" },
       { property: "og:locale", content: "ro_RO" },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://optimcatering.ro/icon-512.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "geo.region", content: "RO-CJ" },
-      { name: "geo.placename", content: "Gilău" },
+      { name: "geo.placename", content: "Gilău, Cluj" },
+      { name: "geo.position", content: "46.7536;23.3826" },
+      { name: "ICBM", content: "46.7536, 23.3826" },
       { name: "google-adsense-account", content: "ca-pub-4079300108937036" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "dns-prefetch", href: "https://bauval.org" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..800,0..100,0..1&family=Nunito+Sans:wght@400;600;700;800&display=swap" },
     ],
     scripts: [
@@ -106,9 +115,10 @@ function RootComponent() {
       </main>
       <Footer />
       <MobileCallBar />
+      <WhatsAppFloat />
       <CookieConsent />
+      <AdRails />
       <AdSocialBar />
-      <AdPopunder />
     </QueryClientProvider>
   );
 }
